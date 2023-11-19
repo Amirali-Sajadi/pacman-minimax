@@ -451,34 +451,34 @@ def nearest_food_distance(state):
 
 
 
-def betterEvaluationFunction1(currentGameState):
-
-    score = 0
-    pac_pos = currentGameState.getPacmanPosition()
-    food_remain = currentGameState.getNumFood()
-    ghost_states = currentGameState.getGhostStates()
-    ghost_distance = 0
-
-
-    if currentGameState.isWin():
-        return currentGameState.getScore() + 10000
-    if currentGameState.isLose():
-        return -10000
-
-    score += currentGameState.getScore() / 2
-
-    score -= 100 * food_remain
-
-    score += 10/nearest_food_distance(currentGameState)
-
-    for ghost in ghost_states:
-        d = manhattanDistance(ghost.getPosition(), pac_pos)
-        ghost_distance += d
-        if d < 3:
-            score -= d * 10
-
-    return score + currentGameState.getScore()
-
+# def betterEvaluationFunction1(currentGameState):
+#
+#     score = 0
+#     pac_pos = currentGameState.getPacmanPosition()
+#     food_remain = currentGameState.getNumFood()
+#     ghost_states = currentGameState.getGhostStates()
+#     ghost_distance = 0
+#
+#
+#     if currentGameState.isWin():
+#         return currentGameState.getScore() + 10000
+#     if currentGameState.isLose():
+#         return -10000
+#
+#     score += currentGameState.getScore() / 2
+#
+#     score -= 100 * food_remain
+#
+#     score += 10/nearest_food_distance(currentGameState)
+#
+#     for ghost in ghost_states:
+#         d = manhattanDistance(ghost.getPosition(), pac_pos)
+#         ghost_distance += d
+#         if d < 3:
+#             score -= d * 10
+#
+#     return score + currentGameState.getScore()
+#
 
 
 
